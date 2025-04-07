@@ -22,7 +22,7 @@ A modern, cross-platform application for managing lost and found items. This app
 - **Search & Filter**: Easily search and filter items by category, date, location, etc.
 - **Admin Dashboard**: Secure admin panel for managing items and users
 - **Responsive Design**: Works seamlessly across all screen sizes and devices
-- **Local Database**: Stores data locally using SQLite (native platforms) and in-memory storage (web)
+- **Cloud Database**: Stores data in Firebase Firestore for real-time synchronization across devices
 - **Authentication**: Secure login system for administrators
 
 ## 🛠️ Technologies Used
@@ -35,10 +35,11 @@ A modern, cross-platform application for managing lost and found items. This app
 - **Intl**: Internationalization and date formatting
 
 ### Backend & Storage
-- **SQLite**: Local database for native platforms
+- **Firebase Firestore**: Cloud database for real-time data storage
+- **Firebase Authentication**: User authentication and management
+- **Firebase Storage**: Cloud storage for images and files
 - **Shared Preferences**: Lightweight storage for user preferences
 - **Flutter Secure Storage**: Secure storage for sensitive information
-- **Path Provider**: File system access for database storage
 
 ### Authentication
 - **Crypto**: Password hashing and security
@@ -108,12 +109,12 @@ Admin credentials:
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/AyshaBithi/lost_and_found_app.git
+   git clone https://github.com/AyshaBithi/lost_and_found_hub.git
    ```
 
 2. Navigate to the project directory:
    ```bash
-   cd lost_and_found_app
+   cd lost_and_found_hub
    ```
 
 3. Install dependencies:
@@ -121,7 +122,23 @@ Admin credentials:
    flutter pub get
    ```
 
-4. Run the application:
+4. Configure Firebase:
+   - Create a Firebase project at [Firebase Console](https://console.firebase.google.com/)
+   - Register your app with Firebase
+   - Edit the `web/firebase-config.js` file with your Firebase configuration:
+     ```javascript
+     const firebaseConfig = {
+       apiKey: "YOUR_API_KEY",
+       authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
+       projectId: "YOUR_PROJECT_ID",
+       storageBucket: "YOUR_PROJECT_ID.appspot.com",
+       messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
+       appId: "YOUR_APP_ID"
+     };
+     ```
+   - For detailed Firebase setup instructions, see the [FIREBASE_SETUP.md](FIREBASE_SETUP.md) file
+
+5. Run the application:
    ```bash
    flutter run -d chrome  # For web
    flutter run             # For default device

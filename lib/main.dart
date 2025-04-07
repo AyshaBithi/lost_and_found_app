@@ -7,12 +7,19 @@ import 'package:lost_and_found_hub/screens/admin_screen.dart';
 import 'package:lost_and_found_hub/screens/login_screen.dart';
 import 'package:flutter/foundation.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:lost_and_found_hub/services/firebase_service.dart';
+import 'package:lost_and_found_hub/services/auth_service.dart';
 
 void main() async {
+  // Ensure Flutter is initialized properly
   WidgetsFlutterBinding.ensureInitialized();
 
-  if (kIsWeb) {
-  }
+  // Initialize Firebase
+  await FirebaseService.initialize();
+
+  // Initialize auth service
+  final authService = AuthService();
+  await authService.init();
 
   runApp(const MyApp());
 }
