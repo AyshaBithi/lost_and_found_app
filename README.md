@@ -109,7 +109,7 @@ Admin credentials:
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/AyshaBithi/lost_and_found_hub.git
+   git clone https://github.com/AyshaBithi/lost_and_found_app.git
    ```
 
 2. Navigate to the project directory:
